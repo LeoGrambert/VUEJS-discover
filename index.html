@@ -5,15 +5,25 @@
     </head>
     <body>
         <div id="app">
-            <h1>{{ restaurantName }}</h1>
+            <h1>{{ name }}</h1>
+            <div>{{ telNumber }} - {{ mail }} - {{ address }}</div>
+            <footer>{{ displayFooterCopyright }}</footer>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
         <script>
             const app = new Vue({
-            el: '#app',
-            data: {
-                restaurantName: 'Shimla'
-            }
+                el: '#app',
+                data: {
+                    name: 'Café avec Vue',
+                    telNumber: '0123456789',
+                    mail: 'hello@cafe.com',
+                    address: '123 street, London'
+                },
+                computed: {
+                    displayFooterCopyright() {
+                        return `${this.name} - All rights reserved - 2021`;
+                    }
+                }
             })
         </script>
     </body>
